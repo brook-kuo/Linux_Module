@@ -1,0 +1,24 @@
+From c9aeaefaf473780a022a2dc80b222c99042264dd Mon Sep 17 00:00:00 2001
+From: Brook <rene3210@gmail.com>
+Date: Sat, 10 Dec 2011 20:58:29 +0800
+Subject: [PATCH] export kill_proc_info
+
+---
+ kernel/signal.c |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/kernel/signal.c b/kernel/signal.c
+index 291c970..27d0bc4 100644
+--- a/kernel/signal.c
++++ b/kernel/signal.c
+@@ -1343,6 +1343,7 @@ int kill_proc_info(int sig, struct siginfo *info, pid_t pid)
+ 	rcu_read_unlock();
+ 	return error;
+ }
++EXPORT_SYMBOL(kill_proc_info);
+ 
+ /* like kill_pid_info(), but doesn't use uid/euid of "current" */
+ int kill_pid_info_as_uid(int sig, struct siginfo *info, struct pid *pid,
+-- 
+1.7.5.4
+
